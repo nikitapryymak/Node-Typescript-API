@@ -43,8 +43,8 @@ app.post('/api/users', (req: Request, res: Response) => {
     });
   }
   
-  // Basic email format validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Basic email format validation (safe from ReDoS)
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({
       success: false,
