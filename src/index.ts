@@ -10,7 +10,7 @@ app.use(express.json());
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: 'Welcome to the Node TypeScript API'
+    message: 'Welcome bruh'
   });
 });
 
