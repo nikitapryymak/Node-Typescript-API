@@ -34,6 +34,24 @@ app.get('/api/users', (req: Request, res: Response) => {
 
 app.post('/api/users', (req: Request, res: Response) => {
   const { name, email } = req.body;
+  
+  // Validate required fields
+  if (!name || !email) {
+    return res.status(400).json({
+      success: false,
+      message: 'Name and email are required fields'
+    });
+  }
+  
+  // Basic email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid email format'
+    });
+  }
+  
   res.status(201).json({
     success: true,
     message: 'User created successfully',

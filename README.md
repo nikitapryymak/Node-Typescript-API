@@ -93,7 +93,10 @@ Starts the compiled production server.
   "email": "bob@example.com"
 }
 ```
-- **Response**: 
+- **Validation**: 
+  - Both `name` and `email` fields are required
+  - Email must be in valid format
+- **Success Response** (201): 
 ```json
 {
   "success": true,
@@ -103,6 +106,19 @@ Starts the compiled production server.
     "name": "Bob Wilson",
     "email": "bob@example.com"
   }
+}
+```
+- **Error Responses** (400):
+```json
+{
+  "success": false,
+  "message": "Name and email are required fields"
+}
+```
+```json
+{
+  "success": false,
+  "message": "Invalid email format"
 }
 ```
 
