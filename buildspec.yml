@@ -11,8 +11,11 @@ phases:
     commands:
       - echo "Compiling TypeScript..."
       - npm run build
-      - zip -r app.zip dist package.json package-lock.json
 artifacts:
   files:
-    - app.zip
+    - package-lock.json
+    - package.json
+    - "dist/**/*"
+    # - '.platform/**/*' # AWS Elastic Beanstalk configuration files
+    # - '.ebextensions/**/*' # AWS Elastic Beanstalk configuration files
   base-directory: .
