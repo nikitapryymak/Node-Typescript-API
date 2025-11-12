@@ -11,7 +11,8 @@ phases:
     commands:
       - echo "Compiling TypeScript..."
       - npm run build
+      - zip -r app.zip dist package.json package-lock.json
 artifacts:
   files:
-    - '**/*'
+    - app.zip
   base-directory: .
